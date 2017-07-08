@@ -1,0 +1,29 @@
+#---------------------#
+#Sping Boot会自动加载配置文件并且根据配置文件的信息建立数据库的连接池
+#推荐采用yaml作为配置文件的格式
+#---------------------#
+spring:
+  # 数据库配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/SpringBootWithRedis
+    username: root
+    password: 123456
+    driver-class-name: org.gjt.mm.mysql.Driver
+
+
+# 服务器配置
+server:
+  port: 8080
+
+# mybatis配置
+mybatis:
+  # 配置映射类所在包名
+  type-aliases-package: com.ncu.jerry.dao
+  # 配置mapper xml文件所在路径，这里是一个数组
+  mapper-locations:
+    - mappers/ProductMapper.xml
+
+
+logging:
+  level:
+    com.ncu.jerry: DEBUG
