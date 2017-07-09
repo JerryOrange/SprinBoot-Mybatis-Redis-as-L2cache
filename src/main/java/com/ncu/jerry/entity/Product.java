@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by Jiacheng on 2017/7/8.
  */
 public class Product implements Serializable {
-    private static final long serialVersionUID = 1435515995276255188L;
+    private static final long serialVersionUID = 1L;
 
     private long id;
     private String name;
