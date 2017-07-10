@@ -6,6 +6,8 @@ import java.io.Serializable;
  * Created by Jiacheng on 2017/7/8.
  */
 public class Product implements Serializable {
+
+    //采用的redis序列化方式是默认的jdk序列化。所以数据库的查询对象实体需要实现Serializable接口。
     private static final long serialVersionUID = 1L;
 
     private long id;
