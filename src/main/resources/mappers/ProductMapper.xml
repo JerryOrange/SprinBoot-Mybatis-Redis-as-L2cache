@@ -5,6 +5,7 @@
 <mapper namespace="com.ncu.jerry.dao.ProductDao">
 
     <!-- 开启基于redis的二级缓存 -->
+    <cache type="com.ncu.jerry.util.RedisCache"/>
     <cache/>
 
     <select id="select" resultType="Product">
