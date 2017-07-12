@@ -59,5 +59,7 @@ spring:
     username: root
     password: 123456
     driver-class-name: org.h2.Driver
+    # schema.sql用于存放我们的建表语句，data.sql用于存放insert的数据
+    # 初始化所需要的表结构以及数据，并在测试结束时销毁
     schema: classpath:schema.sql
     data: classpath:data.sql
