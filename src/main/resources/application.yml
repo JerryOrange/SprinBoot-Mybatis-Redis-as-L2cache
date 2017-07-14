@@ -51,6 +51,7 @@ logging:
     com.ncu.jerry: DEBUG
 
 ---
+# 测试环境下的配置
 spring:
   profiles: test
   # 数据库配置
