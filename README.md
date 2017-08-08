@@ -14,6 +14,13 @@ Demo中使用Spring Boot快速搭建一个Web应用，并且采用Mybatis作为�
 
 局限性：Mybatis的二级缓存只能通过flush整个数据库来实现缓存失效。
 
+## Mybatis 二级缓存使用注意事项：
+二级缓存是建立在同一个namespace下的，如果对表的操作查询可能有多个namespace，那么得到的数据就是错误的。
+想要使用二级缓存时需要想好两个问题：
+1）对该表的操作与查询都在同一个namespace下，其他的namespace如果有操作，就会发生数据过时。
+2）对关联表的查询，关联的所有表的操作都必须在同一个namespace。
+总之，操作与查询在同一个namespace下的查询才能缓存，其他namespace下的查询都可能出现问题。
+
 参考：
 
 http://www.baeldung.com/spring-data-redis-tutorial
