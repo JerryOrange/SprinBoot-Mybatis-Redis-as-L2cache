@@ -12,7 +12,7 @@
         SELECT * FROM products WHERE id = #{id} LIMIT 1
     </select>
 
-    <update id="update" parameterType="Product">
+    <update id="update" parameterType="Product" flushCache="true">
         UPDATE products SET name = #{name}, price = #{price} WHERE id = #{id} LIMIT 1
     </update>
 </mapper>
