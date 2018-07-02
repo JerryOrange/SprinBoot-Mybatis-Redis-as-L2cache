@@ -1,6 +1,5 @@
 package com.ncu.jerry.web;
 
-import com.ncu.jerry.dao.ProductDao;
 import com.ncu.jerry.entity.Product;
 import com.ncu.jerry.service.ProductService;
 import com.ncu.jerry.util.ProductNotFoundException;
@@ -13,21 +12,22 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/product")
 public class ProductController {
+
     @Autowired
     private ProductService productService;
 
+    @ResponseBody
     @GetMapping("/{id}")
-    public Product getProductInfo( @PathVariable("id") Long productId) {
+    public Product getProductInfo(@PathVariable("id") Long productId) {
         return productService.select(productId);
     }
 
-    @PutMapping("/{id}")
-    public Product updateProductInfo(
-        @PathVariable("id") Long productId,
-        @RequestBody Product newProduct) {
-        Product product = productService.select(productId);
+    @ResponseBody
+    @PutMapping("/update")
+    public Product updateProductInfo(Product newProduct) {
+        Product product = productService.select(newProduct.getId());
         if (product == null) {
-            throw new ProductNotFoundException(productId);
+            throw new ProductNotFoundException(newProduct.getId());
         }
         product.setName(newProduct.getName());
         product.setPrice(newProduct.getPrice());
