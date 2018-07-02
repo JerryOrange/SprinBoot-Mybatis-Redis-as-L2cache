@@ -18,12 +18,10 @@ public class ProductService {
 
     public Product select(@Param("id") long id){
         return productDao.select(id);
-    };
+    }
 
     @Transactional(readOnly = false)
     public void update(Product product){
         productDao.update(product);
-    };
-
-
+    }
 }
