@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ncu.jerry.dao.ContentDao">
+
+    <sql id="contentColumns">
+        a.id AS "id",
+        a.category_id AS "categoryId",
+        a.title AS "title",
+        a.content AS "content",
+        a.createDate AS "createDate"
+    </sql>
+
+    <select id="selectByCategoryId" resultType="Content">
+        SELECT
+        <include refid="contentColumns"/>
+        FROM content a
+        WHERE category_id = #{categoryId}
+    </select>
+
+    <update id="updateTitle" parameterType="Content">
+        UPDATE content SET title = #{title} WHERE id = #{id}
+    </update>
+</mapper>
